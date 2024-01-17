@@ -1,10 +1,21 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, TextInput } from 'react-native';
 
 export default function App() {
+  const [message, setMessage] = useState('');
+
+  const showAlert = () => {
+    Alert.alert('Hello', 'Syötit Tekstin:' + message);
+  }
+  
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <TextInput style={{ width: 200, borderColor: 'grey', borderWidth: 1 }}
+        onChangeText={text => setMessage(text)}
+      />
+      <Button title="Press Me" onPress={showAlert}/>
       <StatusBar style="auto" />
     </View>
   );
