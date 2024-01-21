@@ -22,7 +22,13 @@ export default function App() {
       </View>
       <View>
         <TextInput
-          style={{ width: 200, borderColor: 'gray', borderWidth: 1, margin: 1, textAlign: 'center' }}
+          style={{
+            width: 200,
+            borderColor: 'gray',
+            borderWidth: 1,
+            margin: 1,
+            textAlign: 'center'
+          }}
           onChangeText={(text) => setValue1(text)}
           defaultValue={value1}
           keyboardType='numeric'
@@ -30,7 +36,13 @@ export default function App() {
       </View>
       <View>
         <TextInput
-          style={{ width: 200, borderColor: 'gray', borderWidth: 1, margin: 1, textAlign: 'center' }}
+          style={{
+            width: 200,
+            borderColor: 'gray',
+            borderWidth: 1,
+            margin: 1,
+            textAlign: 'center'
+          }}
           onChangeText={(text) => setValue2(text)}
           defaultValue={value2}
           keyboardType='numeric'
