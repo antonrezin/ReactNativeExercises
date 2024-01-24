@@ -34,53 +34,43 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Result: {result}</Text>
-      </View>
-      <View>
-        <TextInput
-          style={{
-            width: 200,
-            borderColor: "gray",
-            borderWidth: 1,
-            margin: 1,
-            textAlign: "center",
-          }}
-          onChangeText={(text) => setValue1(text)}
-          defaultValue={value1}
-          keyboardType="numeric"
-        />
-      </View>
-      <View>
-        <TextInput
-          style={{
-            width: 200,
-            borderColor: "gray",
-            borderWidth: 1,
-            margin: 1,
-            textAlign: "center",
-          }}
-          onChangeText={(text) => setValue2(text)}
-          defaultValue={value2}
-          keyboardType="numeric"
-        />
-      </View>
+      <Text>Result: {result}</Text>
+      <TextInput
+        style={{
+          width: 200,
+          borderColor: "gray",
+          borderWidth: 1,
+          margin: 1,
+          textAlign: "center",
+        }}
+        onChangeText={(text) => setValue1(text)}
+        defaultValue={value1}
+        keyboardType="numeric"
+      />
+      <TextInput
+        style={{
+          width: 200,
+          borderColor: "gray",
+          borderWidth: 1,
+          margin: 1,
+          textAlign: "center",
+        }}
+        onChangeText={(text) => setValue2(text)}
+        defaultValue={value2}
+        keyboardType="numeric"
+      />
       <View style={{ flexDirection: "row" }}>
         <Button title="-" onPress={handleMinus} />
         <Button title="+" onPress={handleSum} />
       </View>
-      <View style={{ height: 400, margin: 50 }}>
-        <View>
-          <Text style={{ textAlign: "center" }}>History</Text>
-        </View>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <Text style={{ textAlign: "center" }}>{item.key}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+      <Text style={{ textAlign: "center" }}>History</Text>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <Text style={{ textAlign: "center" }}>{item.key}</Text>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </View>
   );
 }
@@ -90,6 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    marginTop: 50,
+    marginBottom: 5,
   },
 });

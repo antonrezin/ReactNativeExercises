@@ -23,40 +23,30 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Add to Shopping List</Text>
-      </View>
-      <View>
-        <TextInput
-          style={{
-            width: 200,
-            borderColor: "gray",
-            borderWidth: 1,
-            margin: 1,
-            textAlign: "center",
-          }}
-          onChangeText={(text) => setValue(text)}
-          defaultValue={value}
-        />
-      </View>
+      <Text>Add to Shopping List</Text>
+      <TextInput
+        style={{
+          width: 200,
+          borderColor: "gray",
+          borderWidth: 1,
+          margin: 1,
+          textAlign: "center",
+        }}
+        onChangeText={(text) => setValue(text)}
+        defaultValue={value}
+      />
       <View style={{ flexDirection: "row", marginTop: 30 }}>
         <Button title="Add" onPress={handleAdd} />
         <Button title="Clear" onPress={handleClear} />
       </View>
-      <View style={{ height: 400, margin: 30 }}>
-        <View>
-          <Text style={{ textAlign: "center", color: "blue" }}>
-            Shopping List
-          </Text>
-        </View>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <Text style={{ textAlign: "center" }}>{item.key}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+      <Text style={{ textAlign: "center", color: "blue" }}>Shopping List</Text>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <Text style={{ textAlign: "center" }}>{item.key}</Text>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </View>
   );
 }
@@ -66,6 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    marginTop: 50,
+    marginBottom: 5,
   },
 });
