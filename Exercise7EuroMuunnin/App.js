@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 250,
   },
   label: {
     marginBottom: 10,
