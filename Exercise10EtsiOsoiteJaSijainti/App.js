@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
+import { StatusBar, Alert } from "expo-status-bar";
+import * as Location from "expo-location";
 import {
   StyleSheet,
   Text,
@@ -11,8 +12,28 @@ import {
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 
 export default function App() {
+  const [location, setLocation] = useState(null);
   const [address, setAddress] = useState("");
   const [coordinates, setCoordinates] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert("No permission to get location");
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      const { latitude, longitude } = location.coords;
+      setLocation({
+        latitude,
+        longitude,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      });
+      setCoordinates({ latitude, longitude });
+    })();
+  }, []);
 
   const handleMapPress = () => {
     Keyboard.dismiss();
@@ -33,6 +54,8 @@ export default function App() {
         setCoordinates({
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
+          latitudeDelta: 0.002,
+          longitudeDelta: 0.002,
         });
       })
       .catch((error) => {
