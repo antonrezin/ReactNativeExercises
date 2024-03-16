@@ -21,7 +21,6 @@ export default function App() {
   handleShowButton = () => {
     Keyboard.dismiss();
     const apiKey = "apiKey";
-
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
         address
