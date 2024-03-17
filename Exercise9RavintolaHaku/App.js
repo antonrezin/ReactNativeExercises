@@ -20,7 +20,7 @@ export default function App() {
   };
 
   const handleShowButton = () => {
-    const apiKey = "AIzaSyCAErrTk3NVp720Q0u4waAKxT-zb0K21-8";
+    const apiKey = "apiKey";
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
         address
