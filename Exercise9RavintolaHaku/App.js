@@ -20,7 +20,6 @@ export default function App() {
   };
 
   const handleShowButton = () => {
-    Keyboard.dismiss();
     const apiKey = "apiKey";
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
@@ -33,8 +32,8 @@ export default function App() {
         setCoordinates({
           latitude: parseFloat(lat),
           longitude: parseFloat(lng),
-          latitudeDelta: 0.002, // Zoom level
-          longitudeDelta: 0.002, // Zoom level
+          latitudeDelta: 0.002,
+          longitudeDelta: 0.002,
         });
         fetch(
           `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=500&type=restaurant&key=${apiKey}`
